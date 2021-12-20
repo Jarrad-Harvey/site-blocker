@@ -11,4 +11,13 @@ function addSite(){
     document.getElementById("list").appendChild(node);
 }
 
-document.getElementById('add').addEventListener('click',addSite);
+function deleteSite(e){
+    e.parentNode.parentNode.remove();
+}
+
+window.onload = function(e){
+    // event listeners
+    document.getElementById('add').addEventListener('click',addSite);
+    buttons = document.getElementsByClassName("btn-danger");
+    for(var i=0; i<buttons.length; i++) buttons[i].addEventListener('click',function(){deleteSite(this)});
+}

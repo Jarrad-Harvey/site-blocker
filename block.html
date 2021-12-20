@@ -2,16 +2,29 @@
 <html>
     <head>
         <title> Site Blocker </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="block.js"></script>
     </head>
     <body>
-        <h1>Site Blocker</h1>
-        <input type='text' id='site' />
-        <input type='button' value='add' id='add' /><br>
-
-        <ul id="list">
-            <li>Site 1</li>
-            <li>Site 2</li>
-        </ul>
-        <script src="block.js"></script>
+        <div class="container pt-3">
+            <h1>Site Blocker</h1>
+            <input type='text' id='site' />
+            <input type='button' value='add' id='add' /><br><br>
+            
+            <ul id="list" class="list-group">
+                <li class="list-group-item">
+                    <div class="list-group list-group-horizontal">
+                        <span class="list-group-item">Site 1</span>
+                        <button class="list-group-item btn btn-danger">delete</button>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="list-group list-group-horizontal">
+                        <span class="list-group-item">Site 2</span>
+                        <button class="list-group-item btn btn-danger">delete</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </body>
 </html>
