@@ -1,1 +1,11 @@
-
+{
+    "name": "Site Blocker",
+    "description": "Blocks websites!",
+    "version": "0.1",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage"],
+    "action": {}
+}
