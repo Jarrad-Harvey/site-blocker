@@ -3,3 +3,8 @@ chrome.action.onClicked.addListener(function() {
     let url = chrome.runtime.getURL("block.html");
     let tab = chrome.tabs.create({ url });
 })
+
+chrome.runtime.onInstalled.addListener(() => {
+    // set default settings
+    // chrome.storage.sync.set({ ... });
+});
