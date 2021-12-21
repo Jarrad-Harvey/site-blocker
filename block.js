@@ -1,31 +1,41 @@
-var emptyItem, list;
+var emptyItem, list, itemName;
 
 function updateBlockList(){
+    // not used yet
     chrome.storage.sync.set({key: value}, function() {
         console.log('Value is set to ' + value);
     });
 }
 
 function addItem(){
-    let newItem = document.getElementById("newItem").value;
+    // get new item info
+    let newItem = itemName.value;
+    if(newItem=="") return;
+    itemName.value = "";
+
+    // create new item node
     let e = emptyItem.cloneNode(true);
     e.getElementsByClassName("btn-danger")[0].addEventListener("click",function(){deleteItem(this)});
     e.firstElementChild.firstElementChild.innerHTML = newItem;
-    e.style.visibility = "visible";
+
     list.appendChild(e);
+    $("Li").show(100);
 }
 
 function deleteItem(e){
-    e.parentNode.parentNode.remove();
+    item = e.parentNode.parentNode;
+    $(item).slideUp(200, function(){
+        item.remove();
+    });
 }
 
-window.onload = function(e){
+window.onload = function () {
+    // define references to the DOM
+    itemName = document.getElementById("itemName");
     list = document.getElementById("list");
     emptyItem = list.lastElementChild.cloneNode(true);
     list.lastElementChild.remove();
 
     // event listeners
-    document.getElementById('add').addEventListener('click',addItem);
-    // buttons = document.getElementsByClassName("btn-danger");
-    // for(var i=0; i<buttons.length; i++) buttons[i].addEventListener('click',function(){deleteItem(this)});
+    document.getElementById('addItem').addEventListener('click', addItem);
 }
